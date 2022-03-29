@@ -13,5 +13,6 @@ __copyright__ = "Copyright 2022.03.26, Student Records"
 __github__ = "https://github.com/mattdotpy/Records.git"
 
 
-def create_student():adfadf
-    print()
+def create_student():
+
+def
