@@ -37,6 +37,34 @@ def list_student():
     print()
 
 
+def update_student():
+    print(f'Update Student')
+    print('-' * 11)
+
+    if len(students) == 0:
+        print('There are no students in this list')
+        return
+
+    id = v.get_pos_num('Enter the ID of the student you want to update')
+
+    for student_info in students:
+        identification, first_name, last_name = student_info
+
+        while True:
+            input(f'Do you want to update Student ID #{identification} for {first_name} {last_name} (y/n):')
+
+
+def delete_student():
+    print(f'Delete Student')
+    print('-' * 11)
+
+
+
+
+
+
+
+
 def main():
     """
     Main module that takes user input from 0-4 and calls functions based on that input
@@ -61,7 +89,7 @@ def main():
             create_student()
         elif user_input == '3':
             print('3 - Update a student')
-            #update_student()
+            update_student()
         elif user_input == '4':
             print('4 - Delete a student')
             #delete_student()
