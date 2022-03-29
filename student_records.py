@@ -16,6 +16,7 @@ students = list()
 id = 0
 
 def create_student():
+
     global id
 
     print('Add Student')
@@ -34,6 +35,8 @@ def list_student():
         identification, first_name, last_name = student_info
         print(f'{identification}  {first_name}            {last_name}')
     print()
+
+
 def main():
     """
     Main module that takes user input from 0-4 and calls functions based on that input
