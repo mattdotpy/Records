@@ -13,9 +13,16 @@ __copyright__ = "Copyright 2022.03.26, Student Records"
 __github__ = "https://github.com/mattdotpy/Records.git"
 
 
-#def create_student():
+def create_student():
+
+
 
 def main():
+    """
+    Main module that takes user input from 0-4 and calls functions based on that input
+
+    :return: None
+    """
     while True:
         print('Student Menu')
         print('=' * 22)
@@ -28,13 +35,20 @@ def main():
         user_input = input('Please enter a Menu # (Valid 0-4): ')
         if user_input == '1':
             print('1 - List all students')
+            #list_student()
         elif user_input == '2':
             print('2 - Add a student')
+            create_student()
         elif user_input == '3':
             print('3 - Update a student')
+            #update_student()
         elif user_input == '4':
             print('4 - Delete a student')
+            delete_student()
         elif user_input == '0':
             sys.exit()
         else:
             print('Invalid Input: Please enter a number greater or equal to 4')
+
+if __name__ == '__main__':
+    main()
