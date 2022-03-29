@@ -13,15 +13,26 @@ __copyright__ = "Copyright 2022.03.26, Student Records"
 __github__ = "https://github.com/mattdotpy/Records.git"
 
 students = list()
-
+id = 0
 
 def create_student():
+    global id
+
     print('Add Student')
     print('-' * 11)
-    fname = input('Please enter the Student\'s First Name: ')
-    lname = input('Please enter the Student\'s Last Name: ')
+    first_name = input('Please enter the Student\'s First Name: ')
+    last_name = input('Please enter the Student\'s Last Name: ')
+    id += 1
+    students.append((id, first_name, last_name))
+    print(students)
 
-    students.append((fname, lname, ))
+
+def list_student():
+    print(f'ID First Name      Last Name')
+    print(f'== =============== ===============')
+    for student_info in students:
+        identification, first_name, last_name = student_info
+        print(f'{identification}  {first_name}            {last_name}')
 
 def main():
     """
@@ -41,7 +52,7 @@ def main():
         user_input = input('Please enter a Menu # (Valid 0-4): ')
         if user_input == '1':
             print('1 - List all students')
-            #list_student()
+            list_student()
         elif user_input == '2':
             print('2 - Add a student')
             create_student()
@@ -50,7 +61,7 @@ def main():
             #update_student()
         elif user_input == '4':
             print('4 - Delete a student')
-            delete_student()
+            #delete_student()
         elif user_input == '0':
             sys.exit()
         else:
