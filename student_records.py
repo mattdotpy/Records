@@ -12,10 +12,16 @@ __version__ = '1.0'
 __copyright__ = "Copyright 2022.03.26, Student Records"
 __github__ = "https://github.com/mattdotpy/Records.git"
 
+students = list()
+
 
 def create_student():
+    print('Add Student')
+    print('-' * 11)
+    fname = input('Please enter the Student\'s First Name: ')
+    lname = input('Please enter the Student\'s Last Name: ')
 
-
+    students.append((fname, lname, ))
 
 def main():
     """
