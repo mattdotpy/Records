@@ -33,7 +33,7 @@ def list_student():
     for student_info in students:
         identification, first_name, last_name = student_info
         print(f'{identification}  {first_name}            {last_name}')
-
+    print()
 def main():
     """
     Main module that takes user input from 0-4 and calls functions based on that input
