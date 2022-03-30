@@ -12,8 +12,10 @@ __version__ = '1.0'
 __copyright__ = "Copyright 2022.03.26, Student Records"
 __github__ = "https://github.com/mattdotpy/Records.git"
 
+
 students = list()
 id = 0
+
 
 def create_student():
 
@@ -37,7 +39,7 @@ def list_student():
     print()
 
 
-def update_student():
+def update_student(students):
     print(f'Update Student')
     print('-' * 11)
 
@@ -46,12 +48,22 @@ def update_student():
         return
 
     id = v.get_pos_num('Enter the ID of the student you want to update')
+    student_index = list_student(students, id)
 
-    for student_info in students:
-        identification, first_name, last_name = student_info
+    if student_index == -1:
+        print('There is no student with that ID, please try again.')
+        return
 
-        while True:
-            input(f'Do you want to update Student ID #{identification} for {first_name} {last_name} (y/n):')
+    selected_student = students[id]
+    id, first_name, last_name = selected_student
+
+    user_confirm = v.get_yes_no(f'Do you want to update Student ID # {id} {first_name} {last_name} ')
+
+    if user_confirm:
+        new_first_name = input('Please enter the student\'s first name or press enter to keep '
+                               + students[id - 1][1] + ': ').title()
+        new_last_name = input('Please enter the student\'s last name or press enter to keep '
+                               + students[id - 1][2] + ': ').title()
 
 
 def delete_student():
