@@ -32,11 +32,11 @@ def create_student():
     print('Add Student')
     print('-' * 11)
     first_name = input('Please enter the Student\'s First Name: ')
-    first_name.lower()
-    first_name.capitalize()
+    first_name = first_name.lower()
+    first_name = first_name.capitalize()
     last_name = input('Please enter the Student\'s Last Name: ')
-    last_name.lower()
-    last_name.capitalize()
+    last_name = last_name.lower()
+    last_name = last_name.capitalize()
     id += 1
     students.append((id, first_name, last_name))
     print(students)
@@ -59,7 +59,7 @@ def update_student():
         print('There are no students in this list')
         return
 
-    id = validation.get_pos_num('Enter the ID of the student you want to update')
+    id = validation.get_pos_num('Enter the ID of the student you want to update: ')
 
     student_index = find_student_index(students, id)
 
@@ -125,10 +125,12 @@ def main():
         elif user_input == 4:
             print('4 - Delete a student')
             #delete_student()
-        elif user_input == '0':
+        elif user_input == 0:
+            print('Goodbye')
             sys.exit()
         else:
             print('Invalid Input: Please enter a number greater or equal to 4')
+
 
 if __name__ == '__main__':
     main()
