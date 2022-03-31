@@ -52,7 +52,7 @@ def update_student(students):
         print('There are no students in this list')
         return
 
-    id = v.get_pos_num('Enter the ID of the student you want to update')
+    id = validation.get_pos_num('Enter the ID of the student you want to update')
 
     student_index = students(id)
 
@@ -60,10 +60,10 @@ def update_student(students):
         print('There is no student with that ID, please try again.')
         return
 
-    selected_student = students[id]
-    id, first_name, last_name = selected_student
+    for selected_student in students[id]:
+        identification, first_name, last_name = selected_student
 
-    user_confirm = v.get_yes_no(f'Do you want to update Student ID # {id} {first_name} {last_name} ')
+    user_confirm = validation.get_yes_no(f'Do you want to update Student ID # {identification} {first_name} {last_name} ')
 
     if user_confirm:
         new_first_name = input('Please enter the student\'s first name or press enter to keep '
@@ -90,11 +90,6 @@ def delete_student():
 
 
 
-
-
-
-
-
 def main():
     """
     Main module that takes user input from 0-4 and calls functions based on that input
@@ -110,17 +105,18 @@ def main():
         print('4 - Delete a student')
         print('0 - Exit program')
         print()
-        user_input = input('Please enter a Menu # (Valid 0-4): ')
-        if user_input == '1':
+        user_input = validation.get_int_range('Please enter a menu #', 0, 4)
+
+        if user_input == 1:
             print('1 - List all students')
             list_student()
-        elif user_input == '2':
+        elif user_input == 2:
             print('2 - Add a student')
             create_student()
-        elif user_input == '3':
+        elif user_input == 3:
             print('3 - Update a student')
-            update_student()
-        elif user_input == '4':
+            #update_student()
+        elif user_input == 4:
             print('4 - Delete a student')
             #delete_student()
         elif user_input == '0':
