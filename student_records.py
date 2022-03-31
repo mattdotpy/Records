@@ -18,6 +18,13 @@ students = list()
 id = 0
 
 
+def find_student_index(students, id):
+    for student in students:
+        if id in student:
+            return students.index(student)
+    return -1
+
+
 def create_student():
 
     global id
@@ -44,7 +51,7 @@ def list_student():
     print()
 
 
-def update_student(students):
+def update_student():
     print(f'Update Student')
     print('-' * 11)
 
@@ -54,7 +61,7 @@ def update_student(students):
 
     id = validation.get_pos_num('Enter the ID of the student you want to update')
 
-    student_index = students(id)
+    student_index = find_student_index(students, id)
 
     if student_index == -1:
         print('There is no student with that ID, please try again.')
@@ -89,7 +96,6 @@ def delete_student():
     print('-' * 11)
 
 
-
 def main():
     """
     Main module that takes user input from 0-4 and calls functions based on that input
@@ -115,7 +121,7 @@ def main():
             create_student()
         elif user_input == 3:
             print('3 - Update a student')
-            #update_student()
+            update_student()
         elif user_input == 4:
             print('4 - Delete a student')
             #delete_student()
