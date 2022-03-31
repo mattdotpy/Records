@@ -25,7 +25,11 @@ def create_student():
     print('Add Student')
     print('-' * 11)
     first_name = input('Please enter the Student\'s First Name: ')
+    first_name.lower()
+    first_name.capitalize()
     last_name = input('Please enter the Student\'s Last Name: ')
+    last_name.lower()
+    last_name.capitalize()
     id += 1
     students.append((id, first_name, last_name))
     print(students)
