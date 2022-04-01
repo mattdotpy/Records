@@ -35,20 +35,25 @@ def create_student():
 
 
 def list_student():
-    print(f'ID First Name      Last Name')
-    print(f'== =============== ===============')
+    print(f'{"ID":>4s} {"First Name":<15s} {"Last Name":<15s}')
+    print('=' * 4, '=' * 15, '=' * 15)
     for student_info in students:
         identification, first_name, last_name = student_info
-        print(f'{identification}  {first_name}            {last_name}')
+        print(f'{identification:>4d} {first_name:<15s} {last_name:<15s}')
     print()
 
 
 def find_student_index(students, selected_id):
-    print("matt is stupid")
-    for student in students:
-        print("for looop")
-        if selected_id in student:
-            return students.index(student)
+    """
+
+    :param students: student data (id, first_name, last_name)
+    :type students: 2d list
+    :param selected_id: student id that the user wants to find
+    :type selected_id: int
+    :return: the index of the student in the 2D list or -1 if not found
+    :rtype: int
+    """
+
     #return -1
 
 
@@ -70,15 +75,16 @@ def update_student():
     if student_index == -1:
         print('There is no student with that ID, please try again.')
         return
-    elif student_index == 1:
+    elif student_index == selected_id:
         print(id)
         return id
 
 
-"""
+
     for selected_student in students[id]:
         identification, first_name, last_name = selected_student
 
+    """
     user_confirm = validation.get_yes_no(f'Do you want to update Student ID #{identification} {first_name} {last_name}')
 
     if user_confirm:
