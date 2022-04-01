@@ -47,8 +47,7 @@ def find_student_index(students, id):
     for student in students:
         if id in student:
             return students.index(student)
-        elif id not in student:
-            return -1
+    return -1
 
 
 def update_student():
