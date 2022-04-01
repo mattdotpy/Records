@@ -53,8 +53,10 @@ def find_student_index(students, selected_id):
     :return: the index of the student in the 2D list or -1 if not found
     :rtype: int
     """
-
-    #return -1
+    for student in students:
+        if selected_id in student:
+            return students.index(student)
+    return -1
 
 
 def update_student():
@@ -68,7 +70,7 @@ def update_student():
         print('There are no students in this list')
         return
 
-    selected_id = input('Enter the ID of the student you want to update: ')
+    selected_id = int(input('Enter the ID of the student you want to update: '))
 
     student_index = find_student_index(students, selected_id)
 
