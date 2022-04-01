@@ -43,11 +43,12 @@ def list_student():
     print()
 
 
-def find_student_index(students, id):
+def find_student_index(students, selected_id):
     for student in students:
-        if id in student:
+        id, first_name, last_name = student
+        if selected_id in student:
             return students.index(student)
-    return -1
+    #return -1
 
 
 def update_student():
@@ -61,14 +62,14 @@ def update_student():
         print('There are no students in this list')
         return
 
-    id = input('Enter the ID of the student you want to update: ')
+    selected_id = input('Enter the ID of the student you want to update: ')
 
-    student_index = find_student_index(students, id)
+    student_index = find_student_index(students, selected_id)
 
     if student_index == -1:
         print('There is no student with that ID, please try again.')
         return
-    elif student_index == id:
+    elif student_index == selected_id:
         print(id)
         return id
 """
