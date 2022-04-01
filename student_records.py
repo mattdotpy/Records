@@ -30,7 +30,7 @@ def create_student():
     last_name = last_name.lower()
     last_name = last_name.title()
     id += 1
-    students.append((id, first_name, last_name))
+    students.append([id, first_name, last_name])
 
 
 def list_student():
@@ -76,28 +76,31 @@ def update_student():
         print('There is no student with that ID, please try again.')
         return
 
-    for student_info in students[student_index]:
-        identifier, first_name, last_name = student_info
+    student = students[student_index]
+    identifier, first_name, last_name = student
 
-        user_confirm = validation.get_yes_no(f'Do you want to update Student ID #{identifier} {first_name} {last_name}')
+    user_confirm = validation.get_yes_no(f'Do you want to update '
+                                         f'Student ID #{identifier} {first_name} {last_name} (y/n): ')
 
-    if user_confirm:
-        new_first_name = input(f'Please enter the student\'s first name or press enter to keep {first_name}'
-                               + students[id - 1][1] + ': ').title()
+    if not user_confirm:
+        print('Update cancelled')
+        return
 
-        new_last_name = input('Please enter the student\'s last name or press enter to keep '
-                               + students[id - 1][2] + ': ').title()
+    new_first_name = input(f'Please enter the student\'s first name or press enter to keep {first_name}: ').title()
+
+    new_last_name = input(f'Please enter the student\'s last name or press enter to keep {last_name}: ').title()
+
+    if new_first_name == '' and new_last_name == '':
+        print('No data changed. Update Cancelled')
+        return
 
     if new_first_name > '':
-        students[student_index][1] = new_first_name
-
-    else:
-        new_first_name = first_name
+        student[1] = new_first_name
 
     if new_last_name > '':
-        students[student_index][1] = new_last_name
-    else:
-        new_last_name = last_name
+        student[2] = new_last_name
+
+    print('Update Complete')
 
 
 def delete_student():

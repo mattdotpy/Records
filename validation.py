@@ -30,7 +30,7 @@ def get_int_range(prompt, low, high):
             print('Must enter a number')
 
 
-def get_yes_no(prompt, identification, first_name, last_name):
+def get_yes_no(prompt):
     user_input = input(f'{prompt} (y=yes, n=No): ').lower()
 
     if user_input in ['y', 'yes']:
