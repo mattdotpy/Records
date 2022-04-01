@@ -31,33 +31,35 @@ def get_int_range(prompt, low, high):
 
 
 def get_yes_no(prompt):
-    user_input = input(f'{prompt} (y=yes, n=No): ').lower()
+    while True:
+        user_input = input(f'{prompt} (y=yes, n=No): ').lower()
 
-    if user_input in ['y', 'yes']:
-        return True
-    elif user_input in ['n', 'no']:
-        return False
-    else:
-        print('Invalid Input: Please enter a y=yes or n=no')
+        if user_input in ['y', 'yes']:
+            return True
+        elif user_input in ['n', 'no']:
+            return False
+        else:
+            print('Invalid Input: Please enter a y=yes or n=no')
 
 
-def get_pos_num(prompt, id='int'):
+def get_pos_num(prompt):
     abs(int(input(f'{prompt}')))
 
 
 def get_num(prompt, low,):
-    user_input = input(f'{prompt} ')
+    while True:
+        user_input = input(f'{prompt} ')
 
-    try:
-        if user_input == 'int':
-            number = int(user_input)
-        else:
-            number = float(user_input)
+        try:
+            if user_input == 'int':
+                number = int(user_input)
+            else:
+                number = float(user_input)
 
-        if low <= number:
-            return number
-        else:
-            print(f'Invalid Input: Please enter a number greater than or equal to {low}')
+            if low <= number:
+                return number
+            else:
+                print(f'Invalid Input: Please enter a number greater than {low}')
 
-    except ValueError:
-        print('Must enter a number')
+        except ValueError:
+            print('Must enter a number')

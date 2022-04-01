@@ -34,6 +34,10 @@ def create_student():
 
 
 def list_student():
+    if len(students) == 0:
+        print('There are no students in this list')
+        print()
+        return
     print(f'{"ID":>4s} {"First Name":<15s} {"Last Name":<15s}')
     print('=' * 4, '=' * 15, '=' * 15)
     for student_info in students:
@@ -68,7 +72,6 @@ def update_student():
         return
 
     selected_id = validation.get_num('Enter the ID of the student you want to update: ', 0)
-    #selected_id = int(input('Enter the ID of the student you want to update: '))
 
     student_index = find_student_index(students, selected_id)
 
@@ -104,8 +107,35 @@ def update_student():
 
 
 def delete_student():
+
     print(f'Delete Student')
     print('-' * 11)
+
+    if len(students) == 0:
+        print('There are no students in this list')
+        return
+
+    selected_id = validation.get_num('Enter the ID of the student you want to delete: ', 0)
+
+    student_index = find_student_index(students, selected_id)
+
+    if student_index == -1:
+        print('There is no student with that ID, please try again.')
+        return
+
+    student = students[student_index]
+    identifier, first_name, last_name = student
+
+    user_confirm = validation.get_yes_no(f'Are you sure you want to delete '
+                                         f'Student ID #{identifier} {first_name} {last_name} (y/n): ')
+
+    if not user_confirm:
+        print('Delete cancelled')
+        return
+
+    students[student_index].pop(student)
+
+    print('Delete Completed Complete')
 
 
 def main():
@@ -136,7 +166,7 @@ def main():
             update_student()
         elif user_input == 4:
             print('4 - Delete a student')
-            #delete_student()
+            delete_student()
         elif user_input == 0:
             print('Goodbye')
             sys.exit()

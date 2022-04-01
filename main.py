@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 
 """
-This module contains functions related to adding, modifying, deleting, and showing records of students including names
-and IDs
+This module runs the main function and imports list, create, update, and delete
 """
 
 __author__ = 'Matthew Meyer'
@@ -11,7 +10,11 @@ __copyright__ = "Copyright 2022.03.26, Student Records"
 __github__ = "https://github.com/mattdotpy/Records.git"
 
 import validation
-import student_records
+import sys
+from student_records import list_student
+from student_records import create_student
+from student_records import update_student
+from student_records import delete_student
 
 def main():
     """
@@ -41,7 +44,7 @@ def main():
             update_student()
         elif user_input == 4:
             print('4 - Delete a student')
-            #delete_student()
+            delete_student()
         elif user_input == 0:
             print('Goodbye')
             sys.exit()
