@@ -25,13 +25,12 @@ def create_student():
     print('-' * 11)
     first_name = input('Please enter the Student\'s First Name: ')
     first_name = first_name.lower()
-    first_name = first_name.capitalize()
+    first_name = first_name.title()
     last_name = input('Please enter the Student\'s Last Name: ')
     last_name = last_name.lower()
-    last_name = last_name.capitalize()
+    last_name = last_name.title()
     id += 1
     students.append((id, first_name, last_name))
-    print(students)
 
 
 def list_student():
@@ -77,20 +76,20 @@ def update_student():
     if student_index == -1:
         print('There is no student with that ID, please try again.')
         return
+    """
     elif student_index == selected_id:
         print(id)
         return id
-
-
 """
-    for selected_student in students[id]:
-        identification, first_name, last_name = selected_student
 
-    
-    user_confirm = validation.get_yes_no(f'Do you want to update Student ID #{identification} {first_name} {last_name}')
+
+    for student_info in students[student_index]:
+        id, first_name, last_name = student_info
+
+        user_confirm = validation.get_yes_no(f'Do you want to update Student ID #{id} {first_name} {last_name}')
 
     if user_confirm:
-        new_first_name = input('Please enter the student\'s first name or press enter to keep '
+        new_first_name = input(f'Please enter the student\'s first name or press enter to keep {first_name}'
                                + students[id - 1][1] + ': ').title()
 
         new_last_name = input('Please enter the student\'s last name or press enter to keep '
@@ -106,8 +105,6 @@ def update_student():
         students[student_index][1] = new_last_name
     else:
         new_last_name = last_name
-
-"""
 
 
 def delete_student():
