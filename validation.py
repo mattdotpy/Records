@@ -43,3 +43,21 @@ def get_yes_no(prompt, identification, first_name, last_name):
 
 def get_pos_num(prompt, id='int'):
     abs(int(input(f'{prompt}')))
+
+
+def get_num(prompt, low,):
+    user_input = input(f'{prompt} ')
+
+    try:
+        if user_input == 'int':
+            number = int(user_input)
+        else:
+            number = float(user_input)
+
+        if low <= number:
+            return number
+        else:
+            print(f'Invalid Input: Please enter a number greater than or equal to {low}')
+
+    except ValueError:
+        print('Must enter a number')

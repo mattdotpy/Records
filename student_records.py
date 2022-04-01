@@ -67,7 +67,8 @@ def update_student():
         print('There are no students in this list')
         return
 
-    selected_id = int(input('Enter the ID of the student you want to update: '))
+    selected_id = validation.get_num('Enter the ID of the student you want to update: ', 0)
+    #selected_id = int(input('Enter the ID of the student you want to update: '))
 
     student_index = find_student_index(students, selected_id)
 
@@ -129,7 +130,7 @@ def main():
             create_student()
         elif user_input == 3:
             print('3 - Update a student')
-            update_student(students)
+            update_student()
         elif user_input == 4:
             print('4 - Delete a student')
             #delete_student()
