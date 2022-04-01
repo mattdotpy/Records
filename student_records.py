@@ -58,7 +58,7 @@ def find_student_index(students, selected_id):
     return -1
 
 
-def update_student(students):
+def update_student():
 
     print(f'Update Student')
     print('-' * 11)
