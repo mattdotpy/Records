@@ -58,9 +58,7 @@ def find_student_index(students, selected_id):
     return -1
 
 
-def update_student():
-
-    #global identification, first_name, last_name
+def update_student(students):
 
     print(f'Update Student')
     print('-' * 11)
@@ -76,17 +74,11 @@ def update_student():
     if student_index == -1:
         print('There is no student with that ID, please try again.')
         return
-    """
-    elif student_index == selected_id:
-        print(id)
-        return id
-"""
-
 
     for student_info in students[student_index]:
-        id, first_name, last_name = student_info
+        identifier, first_name, last_name = student_info
 
-        user_confirm = validation.get_yes_no(f'Do you want to update Student ID #{id} {first_name} {last_name}')
+        user_confirm = validation.get_yes_no(f'Do you want to update Student ID #{identifier} {first_name} {last_name}')
 
     if user_confirm:
         new_first_name = input(f'Please enter the student\'s first name or press enter to keep {first_name}'
@@ -137,7 +129,7 @@ def main():
             create_student()
         elif user_input == 3:
             print('3 - Update a student')
-            update_student()
+            update_student(students)
         elif user_input == 4:
             print('4 - Delete a student')
             #delete_student()
