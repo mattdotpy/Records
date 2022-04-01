@@ -26,7 +26,6 @@ def find_student_index(students, id):
 
 
 def create_student():
-
     global id
 
     print('Add Student')
@@ -52,6 +51,7 @@ def list_student():
 
 
 def update_student():
+    global identification, first_name, last_name
     print(f'Update Student')
     print('-' * 11)
 
@@ -70,7 +70,7 @@ def update_student():
     for selected_student in students[id]:
         identification, first_name, last_name = selected_student
 
-    user_confirm = validation.get_yes_no(f'Do you want to update Student ID # {identification} {first_name} {last_name} ')
+    user_confirm = validation.get_yes_no(f'Do you want to update Student ID #{identification} {first_name} {last_name}')
 
     if user_confirm:
         new_first_name = input('Please enter the student\'s first name or press enter to keep '
