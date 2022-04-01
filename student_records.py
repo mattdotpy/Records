@@ -82,11 +82,11 @@ def update_student():
         return id
 
 
-
+"""
     for selected_student in students[id]:
         identification, first_name, last_name = selected_student
 
-    """
+    
     user_confirm = validation.get_yes_no(f'Do you want to update Student ID #{identification} {first_name} {last_name}')
 
     if user_confirm:
