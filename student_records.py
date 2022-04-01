@@ -5,24 +5,17 @@ This module contains functions related to adding, modifying, deleting, and showi
 and IDs
 """
 
-import sys
-
 __author__ = 'Matthew Meyer'
 __version__ = '1.0'
 __copyright__ = "Copyright 2022.03.26, Student Records"
 __github__ = "https://github.com/mattdotpy/Records.git"
 
 import validation
+import sys
+
 
 students = list()
 id = 0
-
-
-def find_student_index(students, id):
-    for student in students:
-        if id in student:
-            return students.index(student)
-    return -1
 
 
 def create_student():
@@ -50,8 +43,18 @@ def list_student():
     print()
 
 
+def find_student_index(students, id):
+    for student in students:
+        if id in student:
+            return students.index(student)
+        elif id not in student:
+            return -1
+
+
 def update_student():
-    global identification, first_name, last_name
+
+    #global identification, first_name, last_name
+
     print(f'Update Student')
     print('-' * 11)
 
@@ -59,14 +62,17 @@ def update_student():
         print('There are no students in this list')
         return
 
-    id = validation.get_pos_num('Enter the ID of the student you want to update: ')
+    id = input('Enter the ID of the student you want to update: ')
 
     student_index = find_student_index(students, id)
 
     if student_index == -1:
         print('There is no student with that ID, please try again.')
         return
-
+    elif student_index == id:
+        print(id)
+        return id
+"""
     for selected_student in students[id]:
         identification, first_name, last_name = selected_student
 
@@ -89,6 +95,8 @@ def update_student():
         students[student_index][1] = new_last_name
     else:
         new_last_name = last_name
+
+"""
 
 
 def delete_student():
