@@ -44,8 +44,9 @@ def list_student():
 
 
 def find_student_index(students, selected_id):
+    print("matt is stupid")
     for student in students:
-        id, first_name, last_name = student
+        print("for looop")
         if selected_id in student:
             return students.index(student)
     #return -1
@@ -69,9 +70,11 @@ def update_student():
     if student_index == -1:
         print('There is no student with that ID, please try again.')
         return
-    elif student_index == selected_id:
+    elif student_index == 1:
         print(id)
         return id
+
+
 """
     for selected_student in students[id]:
         identification, first_name, last_name = selected_student
