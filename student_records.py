@@ -11,8 +11,6 @@ __copyright__ = "Copyright 2022.03.26, Student Records"
 __github__ = "https://github.com/mattdotpy/Records.git"
 
 import validation  # import the validation to get validation functions
-import sys
-
 
 students = list()  # this is our list to store the students
 id = 0
@@ -56,6 +54,7 @@ def list_student():
 
 def find_student_index(students, selected_id):
     """
+    Iterates through the students 2d list and finds the index of the student the user selected
 
     :param students: student data (id, first_name, last_name)
     :type students: 2d list
@@ -111,7 +110,7 @@ def update_student():
         print('No data changed. Update Cancelled')
         return
 
-    if new_first_name > '':
+    if new_first_name > '':  # if a new name was entered update the name to the new name
         student[1] = new_first_name
 
     if new_last_name > '':
@@ -121,6 +120,10 @@ def update_student():
 
 
 def delete_student():
+    """
+    Takes user input about which student to delete out of the list
+    :return:
+    """
 
     print(f'Delete Student')
     print('-' * 11)
@@ -152,43 +155,3 @@ def delete_student():
     del students[student_index]  # removes the selected student from the list.
 
     print('Delete Completed Complete')
-
-
-def main():
-    """
-    Main module that takes user input from 0-4 and calls functions based on that input
-
-    :return: None
-    """
-    while True:
-        print('Student Menu')
-        print('=' * 22)
-        print('1 - List all students')
-        print('2 - Add a student')
-        print('3 - Update a student')
-        print('4 - Delete a student')
-        print('0 - Exit program')
-        print()
-        user_input = validation.get_int_range('Please enter a menu #', 0, 4)
-
-        if user_input == 1:
-            print('1 - List all students')
-            list_student()
-        elif user_input == 2:
-            print('2 - Add a student')
-            create_student()
-        elif user_input == 3:
-            print('3 - Update a student')
-            update_student()
-        elif user_input == 4:
-            print('4 - Delete a student')
-            delete_student()
-        elif user_input == 0:
-            print('Goodbye')
-            sys.exit()
-        else:
-            print('Invalid Input: Please enter a number greater or equal to 4')
-
-
-if __name__ == '__main__':
-    main()

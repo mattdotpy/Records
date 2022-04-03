@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-This module runs the main function and imports list, create, update, and delete
+This module displays the menu to the user and imports list, create, update, and delete
 """
 
 __author__ = 'Matthew Meyer'
@@ -15,6 +15,7 @@ from student_records import list_student
 from student_records import create_student
 from student_records import update_student
 from student_records import delete_student
+
 
 def main():
     """
