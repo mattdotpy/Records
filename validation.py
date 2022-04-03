@@ -41,11 +41,6 @@ def get_yes_no(prompt):
         else:
             print('Invalid Input: Please enter a y=yes or n=no')
 
-
-def get_pos_num(prompt):
-    abs(int(input(f'{prompt}')))
-
-
 def get_num(prompt, low,):
     while True:
         user_input = input(f'{prompt} ')
